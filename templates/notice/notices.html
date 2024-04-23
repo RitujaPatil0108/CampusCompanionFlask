@@ -1,0 +1,83 @@
+{% extends 'template.html' %}
+
+{% block title %}Notices{% endblock %}
+{% block heading %}Notices{% endblock %}
+
+{% set header = True %}
+{% set actions = True %}
+
+{% set action_url = '/add_notice' %}
+{% set pagination_script = False %}
+
+
+{% block content %}
+
+<div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    
+    <!-- Main -->
+    <main class="py-6 bg-surface-secondary">
+        <div class="container-fluid">
+            <!-- Card stats -->
+            <div class="row g-6 mb-6">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Notices</span>
+                                    <span class="h3 font-bold mb-0">{{stats.notice_counts}}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            <div class="card shadow border-0 mb-7">
+                <div class="card-header">
+                    <h5 class="mb-0">All Notices</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover table-nowrap">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Notice Number</th>
+                                <th scope="col">Date of Issue</th>
+                                <th scope="col">Notice Title</th>
+                                <th scope="col">Issuer</th>
+                                <th scope="col">Issued  To</th>
+                                <th scope="col">Download</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {% for notice in notice_data %}
+                            <tr>
+                                <td>{{ notice.notice_number }}</td>
+                                <td>{{ notice.date_of_notice }}</td>
+                                <td>{{ notice.title }}</td>
+                                <td>{{ notice.sender }}</td>
+                                <td>{{ notice.to }}</td>
+                                <td>
+                                    <a href="{{notice.file}}" class="btn btn-sm btn-neutral">View</a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+{% endblock %}
+

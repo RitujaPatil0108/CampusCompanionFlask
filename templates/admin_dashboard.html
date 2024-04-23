@@ -1,0 +1,224 @@
+{% extends 'template.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+{% block heading %}Dashboard{% endblock %}
+
+{% set header = True %}
+{% set pagination_script = False %}
+
+{% block content %}
+<main class="py-6 bg-surface-secondary">
+    <div class="container-fluid">
+        <!-- Card stats -->
+        <div class="row g-6 mb-6">
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Students</span>
+                                <span class="h3 font-bold mb-0">{{ stats['student_count'] }}</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Faculties</span>
+                                <span class="h3 font-bold mb-0">{{ stats['faculty_count'] }}</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Departments</span>
+                                <span class="h3 font-bold mb-0">100</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                    <i class="bi bi-people"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total Peer Sessions</span>
+                                <span class="h3 font-bold mb-0">{{ stats['peer_session_count'] }}</span>
+                            </div>
+                            <div class="col-auto">
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-6 mb-6">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Active Notices</span>
+                                    <span class="h3 font-bold mb-0">{{ stats['notice_counts'] }}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                                        <i class="bi bi-clipboard"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Regulations Documents</span>
+                                    <span class="h3 font-bold mb-0">{{ stats['rules_and_procedures'] }}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Active Opportunities</span>
+                                    <span class="h3 font-bold mb-0">{{ stats['opportunity_count'] }}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                                        <i class="bi bi-bar-chart-steps"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card shadow border-0">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Total PYQs</span>
+                                    <span class="h3 font-bold mb-0">{{ stats['pyq_count'] }}</span>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                                            <i class="bi bi-bookmarks"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+            <div class="card shadow border-0 mb-7">
+            <div class="card-header">
+                <h5 class="mb-0">Students</h5>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-nowrap">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">SNo.</th>
+                            <th scope="col">Student Name</th>
+                            <th scope="col">Roll No</th>
+                            <th scope="col">Batch</th>
+                            <th scope="col">Program</th>
+                            <th scope="col">Department</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for student in student_data %}
+                            
+                        <tr>
+                            <td class="serial-no">1.</td>
+                            <td>
+                                <img alt="..." src="{{ student.profile_picture }}" class="avatar avatar-sm rounded-circle me-2">
+                                <a class="text-heading font-semibold" >
+                                    {{ student.student_name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ student.student_roll }}
+                            </td>
+                            <td>
+                                {{ student.batch }}
+                            </td>
+                            <td>
+                                {{ student.programme }}
+                            </td>
+                            <td>
+                                {{ student.department }}
+                            </td>
+                            <td class="text-end">
+                                <a onclick="sendStudentData('{{student.student_roll}}')" class="btn btn-sm btn-neutral">View</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-footer border-0 py-5">
+                <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
+            </div>
+        </div>
+    </div>
+</main>
+
+<form id="hiddenForm" action="/students" method="post" style="display: none;">
+    <input type="hidden" name="student_roll" id="studentRollInput">
+</form>
+<script>
+async function sendStudentData(studentRoll) {
+
+    // Set the value of student_roll input field
+    document.getElementById('studentRollInput').value = studentRoll;
+
+    // Submit the form
+    document.getElementById('hiddenForm').submit();
+}
+</script>
+{% endblock %}
